@@ -1,0 +1,25 @@
+
+.border{
+    /* border: 5px solid grey !important; */
+    border-radius: 20px;
+    box-shadow: 0 0 20px grey;
+}
+.bg-main{
+    background-color: #f7f7f7;
+}
+.m-left{
+    flex: 1;
+    width: 100%;
+}
+.m-right{
+    flex: 1;
+}
+@media screen and (max-width: 900px) {
+    .checkflex{
+        flex-direction: column !important;
+    }
+    .m-right{
+        margin-top: 40px;
+    }
+    
+}

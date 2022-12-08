@@ -1,0 +1,17 @@
+.con{
+    max-width: 500px !important;
+    min-height: 350px;
+    box-shadow: 0 0 10px 3px;
+}
+.create{
+    padding: 0 !important;
+}
+.create:hover{
+    color: blue !important;
+    text-shadow: 0 0 10px blue !important;
+}
+@media screen and (max-width: 520px) {
+    .con{
+        max-width: 300px !important;
+    }
+}

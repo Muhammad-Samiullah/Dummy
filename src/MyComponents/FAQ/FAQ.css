@@ -1,0 +1,42 @@
+.paralax{
+    background-image: url("../Assets/Images/QA.jpg");
+    height: 650px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(70%);
+}
+.para{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 83%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.title{
+    width: 150px;
+    height: 30px;
+}
+.paralax-div{
+    padding: 20px 0px;
+    font-size:20px;
+}
+.text{
+    font-weight: 1000;
+}
+.accordion{
+    width: 800px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+@media screen and (max-width: 700px) {
+    .paralax{
+        background-attachment: initial;
+        background-size: 100% 650px;
+        background-position: initial;
+    }
+    .title{
+        margin-top: 90%;
+    }
+}

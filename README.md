@@ -1,0 +1,1 @@
+This is a Career Coach, a Career Counseling website.

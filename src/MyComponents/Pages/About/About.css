@@ -1,0 +1,61 @@
+.f-left{
+    flex: 1;
+}
+.f-right{
+    flex: 1;
+}
+.hei{
+    height: 100%;
+}
+.bg-img{
+    background: url("../../Assets/Images/about.jpg");
+    width: 600px;
+    height: 400px;
+    background-size: cover;
+    margin: 40px;
+}
+.a-title{
+    color: #006ce0;
+    font-weight: 700;
+}
+p{
+    line-height: 40px;
+}
+.a-para{
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@media  screen and (max-width: 1040px) {
+    .hei{
+        flex-direction: column-reverse !important;
+    }
+    .f-right{
+        margin: 0 !important;
+    }
+    .f-left{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .a-para{
+        text-align: start;
+    }
+    .bg-img{
+        margin: 0;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 300px;
+    }
+    
+}
