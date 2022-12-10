@@ -79,8 +79,10 @@ def updateProfile(mysql, dat):
     else:
         return "Failed"
 
+results = []
+
 def getStudentCounseling(options, finance, finances, family_bg, priorities, maxCount):
-    results = []
+    global results
     isSame = True
     minCount = 1
     totalCount = 0
@@ -96,14 +98,15 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
         if option[1] == maxCount:
             totalCount += 1
 
-    print("maxCount: ", maxCount)
     for index, option in enumerate(options):
-        print('Option: ', option)
-        print('Option[1]', option[1])
-        print(maxCount)
+        # print('Option: ', option)
+        print('Option[1]: ', option[1])
+        print('Max Count: ', maxCount)
+        print(int(option[1]) == int(maxCount))
+        maxCount == str(maxCount)
         # print('Finances', finances)
         # print('Finance', finance)
-        if option[1] == maxCount and (int(finance) >= int(finances[index]) or family_bg == '1'):
+        if int(option[1]) == int(maxCount) and (int(finance) >= int(finances[index]) or family_bg == '1'):
             print("Inside")
             if maxCount == '1' or maxCount == '2' and isSame:
                 if priorities[index] == max(priorities):
@@ -155,11 +158,12 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
                 else:
                     if career not in results and len(results) < limit:
                         results.append(career)
-    if len(results) > 0 or int(maxCount) == int(minCount):
+    print(results)
+    # if len(results) > 0 or int(maxCount) == int(minCount):
     # if int(maxCount) == int(minCount):
-        return results
-    elif int(maxCount) > int(minCount):
-        return getStudentCounseling(saveOptions, finance, finances, family_bg, priorities, int(maxCount)-1)
+        # return results
+    # elif int(maxCount) > int(minCount):
+        # return getStudentCounseling(saveOptions, finance, finances, family_bg, priorities, int(maxCount)-1)
 
 
 def storeUserData(mysql, data):
@@ -190,8 +194,10 @@ def storeUserData(mysql, data):
     for option in options:
         if int(option[1]) > int(maxCount):
             maxCount = option[1]
-    
-    results = getStudentCounseling(options, finance, finances, family_bg, priorities, maxCount)
+    global results
+    results = []
+    for i in range(int(maxCount), 1, -1):
+        getStudentCounseling(options, finance, finances, family_bg, priorities, i)
 
     if len(results) > 0:
         guided_to = ','.join(results)
