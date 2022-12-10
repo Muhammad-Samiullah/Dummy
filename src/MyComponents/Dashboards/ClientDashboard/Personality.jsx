@@ -27,7 +27,14 @@ const Personality = () => {
        formData.push(pair);
       if (pair[1] === '') {
         isComplete = false;
-        alert('Select All Options');
+        document.querySelectorAll('select').forEach(select => {
+          console.log(select.value)
+          if (select.value == '') {
+            select.style.borderColor = 'red';
+          }else {
+            select.style.borderColor = '#CED4DA';
+          }
+        })
       }
     }
 

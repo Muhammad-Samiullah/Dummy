@@ -4,10 +4,12 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import Result from './Result';
 import {useNavigate, Navigate} from 'react-router-dom';
+import Loader from '../../Assets/Images/loading-icon.gif'
 
 const JobDash = () => {
     const nav = useNavigate();
     const data = async()=>{
+        document.querySelector('.loading-icon-div').style.display = 'block';
         var obj = {obj: [[formik.values.rate_Database_Fundamentals, formik.values.rate_Computer_Architecture, formik.values.rate_Distributed_Computing_Systems, formik.values.rate_Cyber_Security, formik.values.rate_Networking, formik.values.rate_Development, formik.values.rate_Programming_Skills, formik.values.rate_Project_Management, formik.values.rate_AI_ML, formik.values.rate_Technical_Communication, formik.values.rate_Computer_Forensics_Fundamentals, formik.values.rate_se, formik.values.rate_Business_Analysis,formik.values.rate_Communication_skills, formik.values.rate_Data_Science, formik.values.rate_Troubleshooting_skills, formik.values.rate]]}
         const dat = await fetch("http://127.0.0.1:5000/predict", {
             method: "POST",
@@ -461,6 +463,9 @@ const JobDash = () => {
                     </div>
                 </div>
 
+            </div>
+            <div className='loading-icon-div'>
+                <img src={Loader} />
             </div>
         </div>
     )

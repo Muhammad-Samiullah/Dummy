@@ -85,6 +85,7 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
     minCount = 1
     totalCount = 0
     saveOptions = options
+    limit = 4
 
     
     for index, option in enumerate(options):        
@@ -114,7 +115,7 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
                             if c not in results:
                                 results.append(c)
                     else:
-                        if career not in results and len(results) < 4:
+                        if career not in results and len(results) < limit:
                             results.append(career)
             elif maxCount == '5' and isSame:
                 if priorities[index] == min(priorities):
@@ -126,7 +127,7 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
                             if c not in results:
                                 results.append(c)
                     else:
-                        if career not in results and len(results) < 4:
+                        if career not in results and len(results) < limit:
                             results.append(career)
             elif isSame:
                 if priorities[index] == min(priorities):
@@ -138,7 +139,7 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
                             if c not in results:
                                 results.append(c)
                     else:
-                        if career not in results and len(results) < 4:
+                        if career not in results and len(results) < limit:
                             results.append(career)
             else:
                 career = ' '.join(option[0].split('_'))
@@ -149,10 +150,10 @@ def getStudentCounseling(options, finance, finances, family_bg, priorities, maxC
                     if totalCount > 1 and len(career) > 2:
                         career = career[:2]
                     for c in career:
-                        if c not in results and len(results) < 4:
+                        if c not in results and len(results) < limit:
                             results.append(c)
                 else:
-                    if career not in results and len(results) < 4:
+                    if career not in results and len(results) < limit:
                         results.append(career)
     if len(results) > 0 or int(maxCount) == int(minCount):
     # if int(maxCount) == int(minCount):

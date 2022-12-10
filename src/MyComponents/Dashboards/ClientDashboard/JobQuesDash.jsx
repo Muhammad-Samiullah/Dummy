@@ -31,7 +31,14 @@ const JobQuesDash = () => {
       formData.push(pair);
       if (pair[1] === '') {
         isComplete = false;
-        alert('Select All Options');
+        document.querySelectorAll('select').forEach(select => {
+          console.log(select.value)
+          if (select.value == '') {
+            select.style.borderColor = 'red';
+          }else {
+            select.style.borderColor = '#CED4DA';
+          }
+        })
       }
     }
 
@@ -56,7 +63,7 @@ const JobQuesDash = () => {
       setOptions(allOptions);
     }
     else if (states === '3') {
-        var allOptions = [['Option_Chemist', 'Do you love to study atoms and molecules?', 1, 0], ['Option_Chemistry_Teacher', 'Do you love to teach students?', 1, 0], ['Option_Pharmocologist', 'Do you love to study Drugs and other pharmaceutical drugs?', 1, 0]];
+        var allOptions = [['Option_Chemist', 'Do you love to study atoms and molecules?', 1, 0], ['Option_Chemistry_Teacher', 'Do you love to teach students?', 2, 0], ['Option_Pharmocologist', 'Do you love to study Drugs and other pharmaceutical drugs?', 3, 0]];
         setOptions(allOptions);
     }
     else if (states === '4') {

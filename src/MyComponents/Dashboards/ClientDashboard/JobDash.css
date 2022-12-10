@@ -70,3 +70,10 @@
 .form-group {
     margin-bottom: 15px;
 }
+
+.loading-icon-div {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 42%;
+}
